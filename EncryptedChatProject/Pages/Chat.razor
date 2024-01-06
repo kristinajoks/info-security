@@ -1,0 +1,241 @@
+﻿@page "/chat/{UserName}"
+@using EncryptedChatProject.Data;
+@using System.Text;
+
+@inject CipherService cipherService
+
+    <span>@UserName</span>
+
+    <div class="chb-div">
+    <input type="checkbox" @bind="showEncryptedContent">
+    <label> Show encrypted</label>
+    </div>
+
+    <div>
+        <label for="encryptionAlgorithm">Choose Encryption Algorithm:</label>
+    <select id="encryptionAlgorithm" @bind="selectedEncryptionAlgorithm" @oninput="HandleAlgorithmChange" disabled="@algorithmIsSelected">
+            <option value="LEACipher">LEA</option>
+            <option value="FoursquareCipher">Foursquare</option>
+        </select>
+    </div>
+
+    <div class="message-list">
+        @for (int i=0; i<Messages.Count(); i++)
+        {
+        MessageModel message = Messages[i];
+        <div class="message-container @(message.Sender == UserName ? "right" : " ")">
+                <div><strong>@(message.Sender == UserName ? "You": message.Sender)</strong></div>
+
+            @if (showEncryptedContent)
+            {
+                <div>@EncryptedMessages[i].Content</div>
+            }
+            
+            <div>@message.Content</div>                
+            
+                <div><small>@message.Time.ToString(@"hh\:mm\:ss")</small></div>
+                
+            </div>
+         
+        }
+    </div>
+
+<div class="chat-input-container">
+    <label for="userInput">Enter Text:</label>
+    <input id="userInput" @bind="userMessage" />
+    <button @onclick="SaveMessage">Submit</button>
+</div>
+
+@implements IDisposable
+
+
+@code {
+    [Parameter] 
+    public string UserName { get; set; }
+
+    private string userMessage;
+
+    private FileSystemWatcher fileWatcher;
+
+    private List<MessageModel> Messages = new List<MessageModel>();
+    private List<MessageModel> EncryptedMessages = new List<MessageModel>();
+    private bool showEncryptedContent = false;
+
+    private readonly object fileLock = new object();
+
+    private string key1, key2, key3;
+
+    private CipherContext context = new CipherContext();
+
+    private string selectedEncryptionAlgorithm = "LEACipher";
+    private bool algorithmIsSelected = false;
+
+    protected override void OnInitialized()
+    {
+        try
+        {
+            //1. deo
+
+            fileWatcher = new FileSystemWatcher
+            {
+                    Path = $".\\Chat",
+                    Filter = "*.txt",
+                    NotifyFilter = NotifyFilters.Attributes
+                                    | NotifyFilters.CreationTime
+                                    | NotifyFilters.DirectoryName
+                                    | NotifyFilters.FileName
+                                    | NotifyFilters.LastAccess
+                                    | NotifyFilters.LastWrite
+                                    | NotifyFilters.Security
+                                    | NotifyFilters.Size,
+                    EnableRaisingEvents = true
+                };
+
+            fileWatcher.Changed += HandleFileChanged;
+
+            //2. deo
+
+            IConfiguration configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+            key1 = configuration["FoursquareKeys:Key1"];
+            key2 = configuration["FoursquareKeys:Key2"];
+
+            key3 = configuration["LEAKeys:Key3"];
+
+            context.SetCipherBehavior(new LEACipher(key3));
+            cipherService.OnAlgorithmChanged += DisableSelection;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+    }
+
+
+    private void HandleAlgorithmChange(ChangeEventArgs e)
+    {
+        selectedEncryptionAlgorithm = e.Value.ToString();
+
+        if (selectedEncryptionAlgorithm == "FoursquareCipher")
+            context.SetCipherBehavior(new FoursquareCipher(key1, key2));
+        else
+            context.SetCipherBehavior(new LEACipher(key3));
+
+        cipherService.ChangeAlgorithm();
+    }
+
+    private void DisableSelection()
+    {
+        algorithmIsSelected = true; 
+    }
+
+    private DateTime lastFileChangeTime = DateTime.MinValue;
+    private readonly TimeSpan debounceInterval = TimeSpan.FromSeconds(1); 
+    private Timer debounceTimer;
+
+
+    private void HandleFileChanged(object sender, FileSystemEventArgs e)
+    {
+        try
+        {
+            lock (fileLock)
+            {
+                lastFileChangeTime = DateTime.Now;
+
+                debounceTimer?.Dispose();
+                debounceTimer = new Timer(_ =>
+                {
+                    if ((DateTime.Now - lastFileChangeTime) >= debounceInterval)
+                    {
+                        string sender = Path.GetFileNameWithoutExtension(e.FullPath);
+                        string message = System.IO.File.ReadAllText(e.FullPath);
+                        DateTime lastWriteTime = File.GetLastWriteTime(e.FullPath);
+
+                        MessageModel toSendEncrypted = new MessageModel
+                            {
+                                Sender = sender,
+                                Content = message,
+                                Time = lastWriteTime.TimeOfDay
+                            };
+
+                        string decrypted = context.Decrypt(message);
+
+                        MessageModel toSend = new MessageModel
+                            {
+                                Sender = sender,
+                                Content = decrypted,
+                                Time = lastWriteTime.TimeOfDay
+                            };
+
+                        InvokeAsync(() => UpdateMessages(toSendEncrypted, toSend));
+                    }
+                }, null, debounceInterval, Timeout.InfiniteTimeSpan);
+            }
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }        
+    }
+
+    private void UpdateMessages(MessageModel encryptedMessage, MessageModel message)
+    {
+        EncryptedMessages.Add(encryptedMessage);
+        Messages.Add(message);
+
+        StateHasChanged();
+    }
+
+    private void SaveMessage()
+    {
+        try
+        {
+            lock (fileLock)
+            {
+                string fileName = $".\\Chat\\{UserName}.txt";
+
+                string cipherText = context.Encrypt(userMessage);
+
+                System.IO.File.WriteAllText(fileName, cipherText);
+                userMessage = string.Empty;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
+    public class MessageModel
+    {
+        public string Sender { get; set; }
+        public string Content { get; set; }
+        public TimeSpan Time { get; set; }
+    }
+
+
+    public void Dispose()
+    {
+        cipherService.OnAlgorithmChanged -= DisableSelection;
+
+
+        string filePath = $".\\Chat\\{UserName}.txt";
+
+        try
+        {
+            if (File.Exists(filePath))
+            {
+                System.IO.File.Delete(filePath);
+            }
+                       
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error deleting file: {ex.Message}");
+        }
+    }
+
+}

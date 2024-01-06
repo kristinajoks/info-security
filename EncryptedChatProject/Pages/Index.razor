@@ -1,0 +1,52 @@
+﻿@page "/"
+
+<div class="home-container">
+
+    <h3>Hello</h3>
+
+    <input @bind="UserName" placeholder="Your Name" />
+    <button @onclick="GoToMessageInput" disabled="@(disable)">Join the chat!</button>
+
+    <p class="warning">@Warning</p>
+
+</div>
+
+@inject NavigationManager navigationManager
+
+@code {
+
+
+    public string UserName { get; set; }
+    private bool disable => string.IsNullOrEmpty(UserName);
+
+    public string Warning = "";
+
+    private void GoToMessageInput()
+    {
+        string filePath = $".\\Chat\\{UserName}.txt";
+
+        try
+        {
+            if (File.Exists(filePath))
+            {
+                Console.WriteLine("Username already in use.");
+                Warning = "Username already in use.";
+            }
+            else
+            {
+                using (File.Create(filePath))
+                {
+                    Console.WriteLine("File created successfully.");
+                    navigationManager.NavigateTo($"/chat/{UserName}");
+                }
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error creating file: {ex.Message}");
+        }
+
+    }
+
+}
