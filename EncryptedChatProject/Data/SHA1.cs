@@ -3,7 +3,7 @@ using System.Text;
 
 namespace EncryptedChatProject.Data
 {
-    public class SHA1Class
+    public class SHA1
     {
         private static uint h0, h1, h2, h3, h4;
 
@@ -18,16 +18,24 @@ namespace EncryptedChatProject.Data
             byte[] data = Encoding.UTF8.GetBytes(input);
             ulong messageLength = (ulong)data.Length * 8;
 
+            //preprocessing
             byte[] paddedData = new byte[data.Length + 1];
             Array.Copy(data, paddedData, data.Length);
-            paddedData[data.Length] = 0x80;
+            paddedData[data.Length] = 0x80; 
 
             int paddingSize = (448 - (data.Length * 8 + 1) % 512 + 512) % 512 / 8;
             Array.Resize(ref paddedData, paddedData.Length + paddingSize + 8);
 
-            byte[] lengthBytes = BitConverter.GetBytes(messageLength).Reverse().ToArray();
+            byte[] lengthBytes = BitConverter.GetBytes(messageLength);
+
+            if(BitConverter.IsLittleEndian)
+            {
+                Array.Reverse(lengthBytes);
+            }
+
             Array.Copy(lengthBytes, 0, paddedData, paddedData.Length - 8, 8);
 
+            //processing
             int blockNum = paddedData.Length / 64;
 
             for (int i = 0; i < blockNum; i++)
@@ -38,20 +46,15 @@ namespace EncryptedChatProject.Data
                 ProcessBlock(block);
             }
 
-            Console.WriteLine(h0);
-            Console.WriteLine(h1);
-            Console.WriteLine(h2);
-            Console.WriteLine(h3);
-            Console.WriteLine(h4);
+            byte[] h0Bytes = BitConverter.GetBytes(h0).Reverse().ToArray();
+            byte[] h1Bytes = BitConverter.GetBytes(h1).Reverse().ToArray();
+            byte[] h2Bytes = BitConverter.GetBytes(h2).Reverse().ToArray();
+            byte[] h3Bytes = BitConverter.GetBytes(h3).Reverse().ToArray();
+            byte[] h4Bytes = BitConverter.GetBytes(h4).Reverse().ToArray();
 
-            byte[] hashBytes = BitConverter.GetBytes(h0).Concat(BitConverter.GetBytes(h1))
-                                                     .Concat(BitConverter.GetBytes(h2))
-                                                     .Concat(BitConverter.GetBytes(h3))
-                                                     .Concat(BitConverter.GetBytes(h4))
-                                                     .Reverse()
-                                                     .ToArray();
+            byte[] finalHash = h0Bytes.Concat(h1Bytes).Concat(h2Bytes).Concat(h3Bytes).Concat(h4Bytes).ToArray();
 
-            return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            return BitConverter.ToString(finalHash).Replace("-", "").ToLower();
         }
 
         private static void ProcessBlock(byte[] block)
@@ -63,8 +66,7 @@ namespace EncryptedChatProject.Data
             {
                 byte[] wordBytes = new byte[4];
                 Array.Copy(block, i * 4, wordBytes, 0, 4);
-
-                // Reverse the byte order if the system is little-endian
+                                
                 if (BitConverter.IsLittleEndian)
                 {
                     Array.Reverse(wordBytes);
@@ -88,7 +90,7 @@ namespace EncryptedChatProject.Data
 
                 if (i < 20)
                 {
-                    f = (b & c) | ((~b) & d);
+                    f = (b & c) | ((uint)(~b) & d);
                     k = 0x5A827999;
                 }
                 else if (i < 40)
@@ -113,12 +115,6 @@ namespace EncryptedChatProject.Data
                 c = BinaryHelper.ROL(b, 30);
                 b = a;
                 a = temp;
-
-                Console.WriteLine(a);
-                Console.WriteLine(b);
-                Console.WriteLine(c);
-                Console.WriteLine(d);
-                Console.WriteLine(e);
             }
 
             h0 += a;
@@ -126,7 +122,6 @@ namespace EncryptedChatProject.Data
             h2 += c;
             h3 += d;
             h4 += e;
-
         }
     }
 }
