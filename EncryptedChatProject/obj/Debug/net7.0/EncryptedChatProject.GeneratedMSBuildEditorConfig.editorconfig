@@ -9,41 +9,41 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EncryptedChatProject
 build_property.RootNamespace = EncryptedChatProject
-build_property.ProjectDir = C:\Users\krist\Downloads\4. godina\ZI\EncryptedChatProject\
+build_property.ProjectDir = C:\Users\krist\repos\info-security\EncryptedChatProject\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\krist\Downloads\4. godina\ZI\EncryptedChatProject
+build_property.MSBuildProjectDirectory = C:\Users\krist\repos\info-security\EncryptedChatProject
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/krist/Downloads/4. godina/ZI/EncryptedChatProject/App.razor]
+[C:/Users/krist/repos/info-security/EncryptedChatProject/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/krist/Downloads/4. godina/ZI/EncryptedChatProject/Pages/Chat.razor]
+[C:/Users/krist/repos/info-security/EncryptedChatProject/Pages/Chat.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/krist/Downloads/4. godina/ZI/EncryptedChatProject/Pages/Index.razor]
+[C:/Users/krist/repos/info-security/EncryptedChatProject/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/krist/Downloads/4. godina/ZI/EncryptedChatProject/Shared/SurveyPrompt.razor]
+[C:/Users/krist/repos/info-security/EncryptedChatProject/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/krist/Downloads/4. godina/ZI/EncryptedChatProject/_Imports.razor]
+[C:/Users/krist/repos/info-security/EncryptedChatProject/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/krist/Downloads/4. godina/ZI/EncryptedChatProject/Shared/MainLayout.razor]
+[C:/Users/krist/repos/info-security/EncryptedChatProject/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-pn6agd02jw
 
-[C:/Users/krist/Downloads/4. godina/ZI/EncryptedChatProject/Pages/Error.cshtml]
+[C:/Users/krist/repos/info-security/EncryptedChatProject/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/krist/Downloads/4. godina/ZI/EncryptedChatProject/Pages/_Host.cshtml]
+[C:/Users/krist/repos/info-security/EncryptedChatProject/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,6 +1,8 @@
 ﻿@page "/chat/{UserName}"
 @using EncryptedChatProject.Data;
 @using System.Text;
+@using System.Security.Cryptography;
+
 
 @inject CipherService cipherService
 
@@ -74,6 +76,29 @@
     {
         try
         {
+            SHA1 sha1Njihov = SHA1.Create();
+            byte[] hashBytes = sha1Njihov.ComputeHash(Encoding.UTF8.GetBytes("GeeksForGeeks"));
+            StringBuilder sb = new StringBuilder();
+            foreach (byte b in hashBytes)
+            {
+                sb.Append(b.ToString("x2"));
+            }
+            uint h0 = BitConverter.ToUInt32(hashBytes, 0);
+            uint h1 = BitConverter.ToUInt32(hashBytes, 4);
+            uint h2 = BitConverter.ToUInt32(hashBytes, 8);
+            uint h3 = BitConverter.ToUInt32(hashBytes, 12);
+            uint h4 = BitConverter.ToUInt32(hashBytes, 16);
+            Console.WriteLine(h0);
+            Console.WriteLine(h1);
+            Console.WriteLine(h2);
+            Console.WriteLine(h3);
+            Console.WriteLine(h4);
+
+            Console.WriteLine(sb.ToString());
+
+            SHA1Class hasher = new SHA1Class();
+            Console.WriteLine(hasher.CalculateSHA1("GeeksForGeeks"));
+
             //1. deo
 
             fileWatcher = new FileSystemWatcher

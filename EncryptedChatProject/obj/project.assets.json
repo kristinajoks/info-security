@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\EncryptedChatProject.csproj",
+      "projectUniqueName": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\EncryptedChatProject.csproj",
       "projectName": "EncryptedChatProject",
-      "projectPath": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\EncryptedChatProject.csproj",
+      "projectPath": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\EncryptedChatProject.csproj",
       "packagesPath": "C:\\Users\\krist\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\obj\\",
+      "outputPath": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\krist\\AppData\\Roaming\\NuGet\\NuGet.Config",

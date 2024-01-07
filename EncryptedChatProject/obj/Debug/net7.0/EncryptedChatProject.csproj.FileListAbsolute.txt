@@ -29,3 +29,34 @@ C:\Users\krist\Downloads\4. godina\ZI\EncryptedChatProject\obj\Debug\net7.0\refi
 C:\Users\krist\Downloads\4. godina\ZI\EncryptedChatProject\obj\Debug\net7.0\EncryptedChatProject.pdb
 C:\Users\krist\Downloads\4. godina\ZI\EncryptedChatProject\obj\Debug\net7.0\EncryptedChatProject.genruntimeconfig.cache
 C:\Users\krist\Downloads\4. godina\ZI\EncryptedChatProject\obj\Debug\net7.0\ref\EncryptedChatProject.dll
+C:\Users\krist\repos\info-security\EncryptedChatProject\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\krist\repos\info-security\EncryptedChatProject\bin\Debug\net7.0\appsettings.json
+C:\Users\krist\repos\info-security\EncryptedChatProject\bin\Debug\net7.0\EncryptedChatProject.staticwebassets.runtime.json
+C:\Users\krist\repos\info-security\EncryptedChatProject\bin\Debug\net7.0\EncryptedChatProject.exe
+C:\Users\krist\repos\info-security\EncryptedChatProject\bin\Debug\net7.0\EncryptedChatProject.deps.json
+C:\Users\krist\repos\info-security\EncryptedChatProject\bin\Debug\net7.0\EncryptedChatProject.runtimeconfig.json
+C:\Users\krist\repos\info-security\EncryptedChatProject\bin\Debug\net7.0\EncryptedChatProject.dll
+C:\Users\krist\repos\info-security\EncryptedChatProject\bin\Debug\net7.0\EncryptedChatProject.pdb
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\EncryptedChatProject.csproj.AssemblyReference.cache
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\EncryptedChatProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\EncryptedChatProject.AssemblyInfoInputs.cache
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\EncryptedChatProject.AssemblyInfo.cs
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\EncryptedChatProject.csproj.CoreCompileInputs.cache
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\EncryptedChatProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\EncryptedChatProject.RazorAssemblyInfo.cache
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\EncryptedChatProject.RazorAssemblyInfo.cs
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\staticwebassets\msbuild.EncryptedChatProject.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\staticwebassets\msbuild.build.EncryptedChatProject.props
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.EncryptedChatProject.props
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.EncryptedChatProject.props
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\scopedcss\bundle\EncryptedChatProject.styles.css
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\scopedcss\projectbundle\EncryptedChatProject.bundle.scp.css
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\EncryptedChatProject.dll
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\refint\EncryptedChatProject.dll
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\EncryptedChatProject.pdb
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\EncryptedChatProject.genruntimeconfig.cache
+C:\Users\krist\repos\info-security\EncryptedChatProject\obj\Debug\net7.0\ref\EncryptedChatProject.dll

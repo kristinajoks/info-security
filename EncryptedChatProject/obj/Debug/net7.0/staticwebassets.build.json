@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zsCMF1iuRFeRKHbkjTYghTf0n6N8uuwODJDpenhaFao=",
+  "Hash": "R6NIaz/gvfv4YIO/2FRuKbFMS0PBGWiiCVBhWS1T1n0=",
   "Source": "EncryptedChatProject",
   "BasePath": "_content/EncryptedChatProject",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "EncryptedChatProject\\wwwroot",
       "Source": "EncryptedChatProject",
-      "ContentRoot": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\",
       "BasePath": "_content/EncryptedChatProject",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\obj\\Debug\\net7.0\\scopedcss\\bundle\\EncryptedChatProject.styles.css",
+      "Identity": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\obj\\Debug\\net7.0\\scopedcss\\bundle\\EncryptedChatProject.styles.css",
       "SourceId": "EncryptedChatProject",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
       "BasePath": "_content/EncryptedChatProject",
       "RelativePath": "EncryptedChatProject.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\obj\\Debug\\net7.0\\scopedcss\\bundle\\EncryptedChatProject.styles.css"
+      "OriginalItemSpec": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\obj\\Debug\\net7.0\\scopedcss\\bundle\\EncryptedChatProject.styles.css"
     },
     {
-      "Identity": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\EncryptedChatProject.bundle.scp.css",
+      "Identity": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\EncryptedChatProject.bundle.scp.css",
       "SourceId": "EncryptedChatProject",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/EncryptedChatProject",
       "RelativePath": "EncryptedChatProject.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\EncryptedChatProject.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\EncryptedChatProject.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "EncryptedChatProject",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\",
       "BasePath": "_content/EncryptedChatProject",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "EncryptedChatProject",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\",
       "BasePath": "_content/EncryptedChatProject",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "EncryptedChatProject",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\",
       "BasePath": "_content/EncryptedChatProject",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "EncryptedChatProject",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\",
       "BasePath": "_content/EncryptedChatProject",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "EncryptedChatProject",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\",
       "BasePath": "_content/EncryptedChatProject",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "EncryptedChatProject",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\",
       "BasePath": "_content/EncryptedChatProject",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "EncryptedChatProject",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\",
       "BasePath": "_content/EncryptedChatProject",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "EncryptedChatProject",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\",
       "BasePath": "_content/EncryptedChatProject",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "EncryptedChatProject",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\",
       "BasePath": "_content/EncryptedChatProject",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "EncryptedChatProject",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\",
       "BasePath": "_content/EncryptedChatProject",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "EncryptedChatProject",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\",
       "BasePath": "_content/EncryptedChatProject",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\css\\site.css",
       "SourceId": "EncryptedChatProject",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\",
       "BasePath": "_content/EncryptedChatProject",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\favicon.png",
       "SourceId": "EncryptedChatProject",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krist\\Downloads\\4. godina\\ZI\\EncryptedChatProject\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krist\\repos\\info-security\\EncryptedChatProject\\wwwroot\\",
       "BasePath": "_content/EncryptedChatProject",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
