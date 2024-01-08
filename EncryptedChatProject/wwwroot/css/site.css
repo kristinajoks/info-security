@@ -155,6 +155,7 @@ a, .btn-link {
     max-width: 60%;
     word-wrap: break-word;
     width: 800px;
+    max-width: 550px;
 }
 
 .message-list {
@@ -197,3 +198,12 @@ a, .btn-link {
         font-size: 14px;
         color: #333;
     }
+
+.custom-file-input {
+    margin-top: 5px;
+    border: 2px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    color: #333;
+}

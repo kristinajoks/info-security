@@ -6,6 +6,10 @@
 
 @inject CipherService cipherService
 
+@inject IWebHostEnvironment Environment
+@inject ILogger<Chat> Logger
+
+
     <span>@UserName</span>
 
     <div class="chb-div">
@@ -44,7 +48,14 @@
 
 <div class="chat-input-container">
     <label for="userInput">Enter Text:</label>
-    <input id="userInput" @bind="userMessage" />
+    <input id="userInput" @bind="userMessage" disabled="@fileAttached"/>
+
+    <InputFile class="custom-file-input" OnChange="@LoadAttachment" />
+    @if (isLoading)
+    {
+        <p>Uploading...</p>
+    }
+
     <button @onclick="SaveMessage">Submit</button>
 </div>
 
@@ -71,6 +82,13 @@
 
     private string selectedEncryptionAlgorithm = "LEACipher";
     private bool algorithmIsSelected = false;
+
+    private bool fileAttached = false;
+
+    private IBrowserFile loadedFile = null;
+    private long maxFileSize = 1024 * 1024 * 4;
+    private bool isLoading;
+    private string fileContent;
 
     protected override void OnInitialized()
     {
@@ -118,6 +136,33 @@
         }
     }
 
+    private async Task LoadAttachment(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+
+        try
+        {
+            loadedFile = e.GetMultipleFiles(1).FirstOrDefault();
+
+            if(loadedFile != null)
+            {
+                using (var reader = new StreamReader(loadedFile.OpenReadStream(maxFileSize)))
+                {
+                    fileContent = await reader.ReadToEndAsync();
+                }
+
+                fileAttached = true;
+            }
+
+        }
+        catch(Exception ex)
+        {
+            Logger.LogError("File: {Filename} Error: {Error}",
+            loadedFile?.Name, ex.Message);
+        }
+
+        isLoading = false;
+    }
 
     private void HandleAlgorithmChange(ChangeEventArgs e)
     {
@@ -201,11 +246,20 @@
             {
                 string fileName = $".\\Chat\\{UserName}.txt";
 
-                string cipherText = context.Encrypt(userMessage);
+                string messageToSend = fileAttached ? fileContent : userMessage;
+
+                string cipherText = context.Encrypt(messageToSend);
+
 
                 System.IO.File.WriteAllText(fileName, cipherText);
                 userMessage = string.Empty;
             }
+
+            //
+            fileAttached = false;
+
+            fileContent = "";
+            loadedFile = null;
         }
         catch (Exception ex)
         {
