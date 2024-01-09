@@ -40,7 +40,9 @@
             <div>@message.Content</div>                
             
                 <div><small>@message.Time.ToString(@"hh\:mm\:ss")</small></div>
-                
+               
+                <!--ukoliko poruka sadrzi fajl-->
+                <label>@fileValidation</label>
             </div>
          
         }
@@ -83,18 +85,22 @@
     private string selectedEncryptionAlgorithm = "LEACipher";
     private bool algorithmIsSelected = false;
 
+    SHA1P hasher = new SHA1P();
+
     private bool fileAttached = false;
 
     private IBrowserFile loadedFile = null;
     private long maxFileSize = 1024 * 1024 * 4;
     private bool isLoading;
     private string fileContent;
+    private string hashedContent;
+    private string fileValidation = "";
 
     protected override void OnInitialized()
     {
         try
         {
-            Data.SHA1 hasher = new Data.SHA1();
+            //Data.SHA1 hasher = new Data.SHA1();
 
             //1. deo
 
@@ -146,10 +152,31 @@
 
             if(loadedFile != null)
             {
-                using (var reader = new StreamReader(loadedFile.OpenReadStream(maxFileSize)))
+                //using (var reader = new StreamReader(loadedFile.OpenReadStream(maxFileSize)))
+                //{
+                //    fileContent = await reader.ReadToEndAsync();
+                //}
+
+                string contentType = loadedFile.ContentType;
+                if(contentType != "text/plain")
                 {
-                    fileContent = await reader.ReadToEndAsync();
+                    Logger.LogError("File: {Filename} is not a plain text file.", loadedFile.Name);
                 }
+
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    await loadedFile.OpenReadStream(maxFileSize).CopyToAsync(memoryStream);
+                    byte[] contentBytes = memoryStream.ToArray();
+
+                    //fileContent = Convert.ToBase64String(contentBytes);
+                    //fileContent = Convert.ToString(fileContent);
+
+                    fileContent = Encoding.UTF8.GetString(contentBytes);
+
+
+                    hashedContent = hasher.CalculateSHA1(fileContent);
+                }
+
 
                 fileAttached = true;
             }
@@ -211,6 +238,13 @@
                             };
 
                         string decrypted = context.Decrypt(message);
+
+                        string hashedDecrypted = hasher.CalculateSHA1(decrypted);
+
+                        if (hashedContent != hashedDecrypted)
+                        {
+                            fileValidation = "Content does not match the expected structure.";
+                        }
 
                         MessageModel toSend = new MessageModel
                             {

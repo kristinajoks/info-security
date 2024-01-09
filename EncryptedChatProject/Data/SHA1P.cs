@@ -3,7 +3,7 @@ using System.Text;
 
 namespace EncryptedChatProject.Data
 {
-    public class SHA1
+    public class SHA1P
     {
         private static uint h0, h1, h2, h3, h4;
 
