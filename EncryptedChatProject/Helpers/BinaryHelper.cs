@@ -58,7 +58,7 @@
             uint[] uintArray = new uint[byteArray.Length / 4];
             for (int i = 0; i < uintArray.Length; i++)
             {
-                uintArray[i] = BitConverter.ToUInt32(byteArray, i * 4);
+                uintArray[i] = BitConverter.ToUInt32(byteArray, i * 4); //little-endian, revise
             }
 
             return uintArray;
