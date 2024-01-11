@@ -11,6 +11,16 @@
         {
             return ciphertext;
         }
+        
+        public byte[] EncryptBytes(byte[] plaintext)
+        {
+            return plaintext;
+        }
+
+        public byte[] DecryptBytes(byte[] ciphertext)
+        {
+            return ciphertext;
+        }
 
     }
 }

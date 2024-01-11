@@ -76,7 +76,7 @@ namespace EncryptedChatProject.Data
 
         public string Encrypt(string plaintext)
         {
-            if(!keysAvailable)
+            if (!keysAvailable)
                 return plaintext;
 
             plaintext = plaintext.ToUpper().Replace("J", "I");
@@ -116,11 +116,11 @@ namespace EncryptedChatProject.Data
 
         public string Decrypt(string ciphertext)
         {
-            if(!keysAvailable)
+            if (!keysAvailable)
                 return ciphertext;
 
             StringBuilder plaintext = new StringBuilder();
-           
+
             for (int i = 0; i < ciphertext.Length; i += 2)
             {
                 char ch1 = ciphertext[i];
@@ -141,13 +141,92 @@ namespace EncryptedChatProject.Data
 
                     plaintext.Append(decryptedCh1);
                     plaintext.Append(decryptedCh2);
-                                    
+
                 }
-                
+
             }
 
             return plaintext.ToString();
         }
-    }
 
+
+        public byte[] EncryptBytes(byte[] plaintextB)
+        {
+            if (!keysAvailable)
+                return plaintextB;
+            string plaintext = Encoding.UTF8.GetString(plaintextB);
+
+            plaintext = plaintext.ToUpper().Replace("J", "I");
+            plaintext = string.Join("", plaintext.Split(default(string[]), StringSplitOptions.RemoveEmptyEntries));
+
+            StringBuilder ciphertext = new StringBuilder();
+
+            for (int i = 0; i < plaintext.Length; i += 2)
+            {
+                char ch1 = plaintext[i];
+                char ch2 = (i + 1 < plaintext.Length) ? plaintext[i + 1] : 'X';
+
+                Tuple<int, int> position1 = FindChar(orderedAlphabet, ch1);
+                Tuple<int, int> position2 = FindChar(orderedAlphabet, ch2);
+
+                int row1 = 0, col1 = 0, row2 = 0, col2 = 0;
+
+                if (position1 != null && position2 != null)
+                {
+                    row1 = position1.Item1;
+                    col1 = position1.Item2;
+
+                    row2 = position2.Item1;
+                    col2 = position2.Item2;
+
+                    char encryptedCh1 = keySquare1[row1, col2];
+                    char encryptedCh2 = keySquare2[row2, col1];
+
+                    ciphertext.Append(encryptedCh1);
+                    ciphertext.Append(encryptedCh2);
+                }
+            }
+
+            return Encoding.UTF8.GetBytes(ciphertext.ToString());
+        }
+
+
+        public byte[] DecryptBytes(byte[] ciphertextB)
+        {
+            if (!keysAvailable)
+                return ciphertextB;
+
+            string ciphertext = Encoding.UTF8.GetString(ciphertextB);
+
+            StringBuilder plaintext = new StringBuilder();
+
+            for (int i = 0; i < ciphertext.Length; i += 2)
+            {
+                char ch1 = ciphertext[i];
+                char ch2 = (i + 1 < ciphertext.Length) ? ciphertext[i + 1] : 'X';
+
+                Tuple<int, int> position1 = FindChar(keySquare1, ch1);
+                Tuple<int, int> position2 = FindChar(keySquare2, ch2);
+
+                if (position1 != null && position2 != null)
+                {
+                    int row1 = position1.Item1;
+                    int col1 = position1.Item2;
+                    int row2 = position2.Item1;
+                    int col2 = position2.Item2;
+
+                    char decryptedCh1 = orderedAlphabet[row1, col2];
+                    char decryptedCh2 = orderedAlphabet[row2, col1];
+
+                    plaintext.Append(decryptedCh1);
+                    plaintext.Append(decryptedCh2);
+
+                }
+
+            }
+
+            return Encoding.UTF8.GetBytes(plaintext.ToString());
+        }
+
+    }
 }

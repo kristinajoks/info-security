@@ -2,7 +2,8 @@
 @using EncryptedChatProject.Data;
 @using System.Text;
 @using System.Security.Cryptography;
-
+@using System.Drawing;
+@using System.IO;
 
 @inject CipherService cipherService
 
@@ -100,8 +101,6 @@
     {
         try
         {
-            //Data.SHA1 hasher = new Data.SHA1();
-
             //1. deo
 
             fileWatcher = new FileSystemWatcher
@@ -152,11 +151,6 @@
 
             if(loadedFile != null)
             {
-                //using (var reader = new StreamReader(loadedFile.OpenReadStream(maxFileSize)))
-                //{
-                //    fileContent = await reader.ReadToEndAsync();
-                //}
-
                 string contentType = loadedFile.ContentType;
                 if(contentType != "text/plain")
                 {
@@ -168,15 +162,10 @@
                     await loadedFile.OpenReadStream(maxFileSize).CopyToAsync(memoryStream);
                     byte[] contentBytes = memoryStream.ToArray();
 
-                    //fileContent = Convert.ToBase64String(contentBytes);
-                    //fileContent = Convert.ToString(fileContent);
-
                     fileContent = Encoding.UTF8.GetString(contentBytes);
-
 
                     hashedContent = hasher.CalculateSHA1(fileContent);
                 }
-
 
                 fileAttached = true;
             }
@@ -245,6 +234,10 @@
                         {
                             fileValidation = "Content does not match the expected structure.";
                         }
+                        else
+                        {
+                            fileValidation = "";
+                        }
 
                         MessageModel toSend = new MessageModel
                             {
@@ -283,13 +276,11 @@
                 string messageToSend = fileAttached ? fileContent : userMessage;
 
                 string cipherText = context.Encrypt(messageToSend);
-
-
+                                
                 System.IO.File.WriteAllText(fileName, cipherText);
                 userMessage = string.Empty;
             }
-
-            //
+                        
             fileAttached = false;
 
             fileContent = "";
@@ -306,6 +297,7 @@
         public string Sender { get; set; }
         public string Content { get; set; }
         public TimeSpan Time { get; set; }
+        //FileAttached
     }
 
 

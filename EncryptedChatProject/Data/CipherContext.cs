@@ -25,5 +25,14 @@
         {
             return _cipherBehavior.Decrypt(ciphertext);
         }
+        public byte[] EncryptBytes(byte[] plaintext)
+        {
+            return _cipherBehavior.EncryptBytes(plaintext);
+        }
+
+        public byte[] DecryptBytes(byte[] ciphertext)
+        {
+            return _cipherBehavior.DecryptBytes(ciphertext);
+        }
     }
 }
